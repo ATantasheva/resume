@@ -746,8 +746,25 @@ position: relative;
    top: 10px;
    right: 10px;
 }
-.slider {
+@media(max-width:763px) {
+   .popup__content1 .slider {
+      width: 500px;
+      height: 400px;
+   }
 }
+@media(max-width:600px) {
+   .popup__content1 .slider {
+      width: 400px;
+      height: 350px;
+   }
+}
+@media(max-width:474px) {
+   .popup__content1 .slider {
+      width: 300px;
+      height: 300px;
+   }
+}
+
 
 
 .popup__slider .slider {
@@ -850,41 +867,41 @@ left: 0;
 top: 0;
 width: 30px;
 height: 30px;
-background: url('/img/icons/coding.png') 0 0 no-repeat;
+background: url('../img/icons/coding.png') 0 0 no-repeat;
 background-size: cover;
    }
    .skills__list_1 li:nth-child(1)::before {
-      background: url('/img/icons/coding.png') 0 0 no-repeat;
+      background: url('../img/icons/coding.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
    }
    .skills__list_1 li:nth-child(2)::before {
-      background: url('/img/icons/web.png') 0 0 no-repeat;
+      background: url('../img/icons/web.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
    }
    .skills__list_1 li:nth-child(3)::before {
-      background: url('/img/icons/wp.png') 0 0 no-repeat;
+      background: url('../img/icons/wp.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
    }
    .skills__list_1 li:nth-child(4)::before {
-      background: url('/img/icons/js.png') 0 0 no-repeat;
+      background: url('../img/icons/js.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
    }
    .skills__list_1 li:nth-child(5)::before {
-      background: url('/img/icons/jquery2.png') 0 0 no-repeat;
+      background: url('../img/icons/jquery2.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
    }
    .skills__list_2 li:nth-child(1)::before {
-      background: url('/img/icons/internet.png') 0 0 no-repeat;
+      background: url('../img/icons/internet.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
@@ -896,19 +913,19 @@ height: 30px;
 background-size: cover;
    }
    .skills__list_2 li:nth-child(3)::before {
-      background: url('/img/icons/files.png') 0 0 no-repeat;
+      background: url('../img/icons/files.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
    }
    .skills__list_2 li:nth-child(4)::before {
-      background: url('/img/icons/sql-server1.png') 0 0 no-repeat;
+      background: url('../img/icons/sql-server1.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
    }
    .skills__list_2 li:nth-child(5)::before {
-      background: url('/img/icons/figma.png') 0 0 no-repeat;
+      background: url('../img/icons/figma.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
