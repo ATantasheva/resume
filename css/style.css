@@ -913,7 +913,7 @@ height: 30px;
 background-size: cover;
    }
    .skills__list_2 li:nth-child(2)::before {
-      background: url('/img/icons/github.png') 0 0 no-repeat;
+      background: url('../img/icons/github.png') 0 0 no-repeat;
       width: 30px;
 height: 30px;
 background-size: cover;
