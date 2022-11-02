@@ -32,6 +32,7 @@ body {
 	font-size: 16px;
 	color: #2B2B2B;
    font-family: 'League Spartan', sans-serif;
+   position: relative;
 }
 body._lock {
  
@@ -42,8 +43,11 @@ a {
 }
 /*Для оболочки и футера +для скролла */
 .wrapper {
-	min-height: 100%;
-	overflow: hidden;
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   position: relative;
 }
 .container {
 	max-width: 1246px; /* padding не входит в ширину тк box-sizing: content-box */
@@ -413,6 +417,7 @@ transform: rotate(-45deg) translate(0px, -50%);
    height: 80px;
    background-color: #fff;
    z-index: 5;
+   
 }
 .header__menu._active {
 left: 0;
@@ -789,12 +794,13 @@ position: relative;
 
 .main {
    padding: 220px 0px 10px 0px;
+   flex: 1 1 auto;
+ 
      }
      .about {
       padding: 0px 0px 50px 0px;
    }
-   .container {
-   }
+  
    .about__body {
       display: flex;
       align-items: center;
@@ -1169,6 +1175,19 @@ margin-left: 0;
             #r16:checked ~ .s1 {
                margin-left: -75%;
             } 
+            /*Сайт - резюме*/ 
+#r29:checked ~ .s1 {
+   margin-left: 0;
+      }
+#r30:checked ~ .s1 {
+   margin-left: -25%;
+      }
+      #r31:checked ~ .s1 {
+         margin-left: -50%;
+            }
+            #r32:checked ~ .s1 {
+               margin-left: -75%;
+            } 
 /*Поп-ап YtYt*/ 
 #r17:checked ~ .s1 {
    margin-left: 0;
@@ -1208,6 +1227,19 @@ margin-left: 0;
             #r28:checked ~ .s1 {
                margin-left: -75%;
             }  
+             /*Поп-ап Сайт - резюме */
+ #r33:checked ~ .s1 {
+   margin-left: 0;
+      }
+#r34:checked ~ .s1 {
+   margin-left: -25%;
+      }
+      #r35:checked ~ .s1 {
+         margin-left: -50%;
+            }
+            #r36:checked ~ .s1 {
+               margin-left: -75%;
+            } 
 /*скрытый блок верстка связка с js */
             .block__show, .block__show11 {
                display: none;
@@ -1280,10 +1312,10 @@ h2 {
 
 /*    footer    */
 .footer {
+
    background: #E0E0E0;
    clip-path: polygon(50% 33%, 100% 0, 100% 100%, 0 100%, 0 0);
    padding: 50px 0px 15px 0px;
-   position: relative;
 }
 .footer__background {
 
@@ -1371,11 +1403,11 @@ padding: 10px;
 .footer-menu__item a:hover {
    text-decoration: underline;
 }
-
+/* Куки и политика */
 .cookie_notice {
    display: none;
    position: fixed;
-   z-index: 999999;
+   z-index: 1000;
    bottom: 0;
    left: 0;
    right: 0;
@@ -1388,8 +1420,10 @@ padding: 10px;
    margin-top: 20px;
    padding: 10px 10px; 
    border-top: 4px solid #474646 ;
+  margin-top: 50px ;
 }
 /* Оформление кнопок */
+
 .cookie_btn {
    display: inline-block;
    margin: 10px 6px 4px 6px;
@@ -1427,8 +1461,8 @@ padding: 10px;
 .cookie_btn:hover:before {
    width: 100%;
    left: 0;
- }
-
+ } 
+ 
  /*   Адаптив  footer    */
 
  @media(max-width: 767px) {
@@ -1484,3 +1518,13 @@ padding: 10px;
    }
   
  }
+ .commerc, .maket, .javascript, .project {
+   padding: 10px 0px 0px 0px;
+ }
+
+ @media(max-width:767px) { /*для навигации при прокрутке*/
+   .header {
+padding: 0px 0px 150px 0px;
+  }
+
+ } 
