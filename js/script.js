@@ -109,9 +109,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		let error = formValidate(form);
       let formData = new FormData(form);
+      //у меня картинки нет
+      formData.append('image', formImage.files[0]);
 
 
-//проверка
+//проверка  перед отправкой формы
 if (error === 0) {
    form.classList.add('_sending'); //доб класс - идет отправка формы
    
@@ -135,7 +137,7 @@ if (error === 0) {
 
 
 
-        //валидация
+        //валидация (проверка заполненности полей)
       function formValidate(form) {
          let error = 0;
          let formReq = document.querySelectorAll('._req');
@@ -228,157 +230,7 @@ function toggleShowMoreBtn(showMoreBtn) {
    });
  });
 
- //открытие фото и блока слайдера - поп-ап классы в html поставила 
-
-/*
- const popupLinks = document.querySelectorAll('.popup-link');
-// получаем body
-const body = document.querySelector('body');
-//
-const lockPadding = document.querySelectorAll('.lock-padding')
-//нужна чтобы не было двойных нажатий
-let unlock = true;
-// время в ms как в .popup  = transition: all 0.8s ease 0s;
-const timeout = 800;
-
-//проверка сущ-ют ли ссылки на странице
-if(popupLinks.length>0) {
-   //циклом по кажд ссылке и получаем каждую в popupLink
-   for( let index = 0; index < popupLinks.length; index++) {
-      const popupLink = popupLinks[index];
-      //вешаем клик
-      popupLink.addEventListener('click', function(e) {
-         //из атрибута href убираем #
-         const popupName = popupLink.getAttribute('href').replace('#','');
-         //получаем объект поп-апа
-         const curentPopup = document.getElementById(popupName);
-         //объект отправляем в функцию открывания
-         popupOpen(curentPopup);
-         //запрет стандартного действия ссылки
-         e.preventDefault();
-      })
-   }
-};
-//закрытие поп-апа
-const popupCloseIcon = document.querySelectorAll('.close-popup');
-//проверка есть ли такой объект
-if (popupCloseIcon.length > 0) {
-   for(let index = 0; index < popupCloseIcon; index++) {
-      const el = popupCloseIcon[index];
-      el.addEventListener('click', function (e) {
-         //в функцию отправляем объект который явл-ся ближайшим родителем
-         popupClose(el.closest('.popup'));
-         e.preventDefault();
-      });
-   }
-}
-//сама функция открытия  popupOpen
-function popupOpen(curentPopup) {
-   //проверка есть перемен curentPopup и unlock=true
-   if (curentPopup && unlock) {
-// сначала закрываем поп-ап
-const popupActive = document.querySelectorAll('.popup.open');
-if(popupActive) {
-   popupClose(popupActive, false);
-} else {
-   bodyLock(); //блочим боди
-}
-//доб класс open'
-curentPopup.classList.add('.open');
-curentPopup.addEventListener('click',function(e) {
-   //если у нажатого объекта нет в родителе объекта с классом popup__content
-   //тогда закрываем
-   if(!e.target.closest('.popup__content')) {
-      popupClose(e.target.closest('.popup'));
-   }
-});
-   }
-}
-
-function popupClose(popupActive, doUnlock = true) {
-	if (unlock) {
-		popupActive.classList.remove('open');
-		if (doUnlock) {
-			bodyUnLock();
-		}
-	}
-}
-
-function bodyLock() {
-	const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
-
-	if (lockPadding.length > 0) {
-		for (let index = 0; index < lockPadding.length; index++) {
-			const el = lockPadding[index];
-			el.style.paddingRight = lockPaddingValue;
-		}
-	}
-	body.style.paddingRight = lockPaddingValue;
-	body.classList.add('lock');
-
-	unlock = false;
-	setTimeout(function () {
-		unlock = true;
-	}, timeout);
-}
-
-function bodyUnLock() {
-	setTimeout(function () {
-		if (lockPadding.length > 0) {
-			for (let index = 0; index < lockPadding.length; index++) {
-				const el = lockPadding[index];
-				el.style.paddingRight = '0px';
-			}
-		}
-		body.style.paddingRight = '0px';
-		body.classList.remove('lock');
-	}, timeout);
-
-	unlock = false;
-	setTimeout(function () {
-		unlock = true;
-	}, timeout);
-}
-
-document.addEventListener('keydown', function (e) {
-	if (e.which === 27) {
-		const popupActive = document.querySelector('.popup.open');
-		popupClose(popupActive);
-	}
-});
-
-(function () {
-	// проверяем поддержку
-	if (!Element.prototype.closest) {
-		// реализуем
-		Element.prototype.closest = function (css) {
-			var node = this;
-			while (node) {
-				if (node.matches(css)) return node;
-				else node = node.parentElement;
-			}
-			return null;
-		};
-	}
-})();
-(function () {
-	// проверяем поддержку
-	if (!Element.prototype.matches) {
-		// определяем свойство
-		Element.prototype.matches = Element.prototype.matchesSelector ||
-			Element.prototype.webkitMatchesSelector ||
-			Element.prototype.mozMatchesSelector ||
-			Element.prototype.msMatchesSelector;
-	}
-})();
-
-*/
-
-
-
-
-
-
+ 
 // функция возвращает cookie с именем name, если есть, если нет, то undefined    
 function getCookie(name) {
    let matches = document.cookie.match(new RegExp(

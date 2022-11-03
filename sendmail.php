@@ -13,9 +13,9 @@
 	//От кого письмо
 	$mail->setFrom('указать!', 'Фрилансер по жизни');
 	//Кому отправить
-	$mail->addAddress('указать!');
+	$mail->addAddress('a4ypaxoid@yandex.ru');
 	//Тема письма
-	$mail->Subject = 'Привет! Это "Фрилансер по жизни"';
+	$mail->Subject = 'Привет! Пишу тебе с твоего сайта';
 
 	//Рука
 	$hand = "Правая";
@@ -47,9 +47,9 @@
 			$body.='<p><strong>Фото в приложении</strong>';
 			$mail->addAttachment($fileAttach);
 		}
-	} */
+	} 
+	$mail->Body = $body; */
 
-	$mail->Body = $body;
 
 	//Отправляем
 	if (!$mail->send()) {
