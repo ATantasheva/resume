@@ -99,7 +99,7 @@ menuBody.classList.remove('_active');
 //для попап - конверт - обратная связь
 //проверка что документ загружен
 document.addEventListener('DOMContentLoaded', function () {
-	//получаем всю форму в константу
+	//получаем всю форму в константу по id
    const form = document.getElementById('form');
 	//вешаем событие submit и функцию formSend
    form.addEventListener('submit', formSend);
@@ -108,63 +108,61 @@ document.addEventListener('DOMContentLoaded', function () {
 		e.preventDefault(); //запрещаем стандартн поведение 'submit'
 
 		let error = formValidate(form);
-      let formData = new FormData(form);
-      //у меня картинки нет
-      formData.append('image', formImage.files[0]);
+     let formData = new FormData(form);
 
 
 //проверка  перед отправкой формы
-if (error === 0) {
+if (error === 0) { 
    form.classList.add('_sending'); //доб класс - идет отправка формы
-   
-   let response = await fetch('sendmail.php', {
+    let response = await fetch('sendmail.php', {
       method: 'POST',
       body: formData
    });
-   if (response.ok) {
-      let result = await response.json();
+   if (response.ok) { //если все ок
+      let result = await response.json(); //возвращается как ответ response.json
       alert(result.message);
-      formPreview.innerHTML = ''; //очитска формы при отправке
-      form.reset();
-      form.classList.remove('_sending');
+      // formPreview.innerHTML = ''; очитска формы при отправке
+      form.reset(); // очищаем поля формы 
+      form.classList.remove('_sending');  //убираем класс отправки формы после того как отправилась
    } else {
       alert("Ошибка");
-          form.classList.remove('_sending');
+   form.classList.remove('_sending');
    } 
 } else {
    alert('Заполните обязательные поля');
 }
 
-
-
         //валидация (проверка заполненности полей)
       function formValidate(form) {
          let error = 0;
+         //всем обязательным полям класс _req
          let formReq = document.querySelectorAll('._req');
    //цикл - будем проверять заполнено ли поле
+   //бегаем по всем этим полям и получаем в конст кажд инпут
          for (let index = 0; index < formReq.length; index++) {
             const input = formReq[index];
             //изначлаьно удаляем класс Error
             formRemoveError(input);
    
+            //проверка e-mail
             if (input.classList.contains('_email')) {
                      //проверка по функции теста email
                if (emailTest(input)) {
                   //если true то вешаем класс Error
-                  formAddError(input);
-                  error++;
+                  formAddError(input); //вешаем ошибку
+                  error++; // хз зачем увеличив на 1 let error = 0;
                }
             } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-               formAddError(input);
+               formAddError(input); //вешаем ошибку
                error++;
             } else { //если пустое поле
                if (input.value === '') {
-                  formAddError(input);
+                  formAddError(input); //вешаем ошибку
                   error++;
                }
             }
          }
-         return error;
+         return error; //возврашаем занчение 
       }
       // функции удалить добавить класс Error на элемент и родителя
       function formAddError(input) {
@@ -181,6 +179,7 @@ if (error === 0) {
       }
    }
 });   
+
 
 //кнопка - показать больше
 

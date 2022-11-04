@@ -154,25 +154,12 @@ color: #FFEC34;
    font-weight: 600;
    letter-spacing: 4.5px;
    padding: 0px 0px 0px 5px;
-} */
-.header__menu {
-
-}
-
+} 
 /* NAVIGATION */
 nav {
- 
    margin: 0 auto;
    background: #fff;
    padding: 10px 0;
-   
- }
- nav ul {
-
-
- }
- nav ul li {
-   
  }
  .header__list {
    display: flex;
@@ -280,10 +267,6 @@ nav {
 }
 .contacts__link:not(:last-child) {
    padding: 0px 15px 0px 0px;
-}
-.contacts__telegramm {
-}
-.contacts__message {
 }
   .contacts img {
   max-width: 100%;
@@ -557,11 +540,6 @@ flex-wrap: wrap;
    font-size: 20px;
    color: #000;
 }
-.popup__title {
-  
-}
-.popup__text {
-}
 /*Стили для отправки формы*/
 .popup__form {
    max-width: 550px;
@@ -570,13 +548,13 @@ flex-wrap: wrap;
 .popup__form * { /*убираем линии вокруг формы при фокусе*/
 outline: none;
 }
-.form__body {
+.popup__content {
    position: relative;
 }
 .form__body:nth-child(2) {
    padding: 20px 0px 0px 0px;
 }
-.popup__form::after {
+.form__body::after {
    content: '';
    position: absolute;
    top: 0;
@@ -587,8 +565,9 @@ outline: none;
    opacity: 0;
    visibility: hidden;
    transition: all 0.5s ease 0s;
+   z-index: 3;
 }
-.popup__form._sending::after {
+.form__body._sending::after {
    opacity: 1;
    visibility: visible;
 }
@@ -631,8 +610,6 @@ textarea.form__input {
    resize: vertical; /*чтобы самовольно не расширялась*/
    padding: 5px 20px;
 }
-.checkbox {
-}
 .checkbox._error .checkbox__label::before {
    box-shadow: 0 0 10px red;
 }
@@ -642,7 +619,6 @@ textarea.form__input {
 .checkbox__input:checked + .checkbox__label::after {
 	transform: scale(1);
 }
-
 .checkbox__label {
 	font-size: 16px;
 	line-height: 140%;
@@ -982,9 +958,6 @@ background-size: cover;
 /* ============================================ */
 
 /* ==Maket========================== */
-
-     .maket {
-   }
    h3 {
    padding: 10px 0px 0px 0px;
       font-size: 24px; 
@@ -1004,12 +977,6 @@ background-size: cover;
       padding: 0px 0px 20px 0px;
       line-height: 150%;
       font-size: 20px;
-   }
-   .maket__1 {
-    
-   }
-   .maket__body {
-     
    }
    .maket__text {
       flex: 0 1 50%;
@@ -1057,12 +1024,6 @@ background-size: cover;
       position: relative;
       overflow: hidden;
       padding-bottom: 30px;
-   }
-   .slider__maket {
-
-   }
-   .slider {
-
    }
    /* для того чтобы встало по центру
    можно использовать как для поп-апа при клике
@@ -1312,18 +1273,13 @@ h2 {
 
 /*    footer    */
 .footer {
-
    background: #E0E0E0;
    clip-path: polygon(50% 33%, 100% 0, 100% 100%, 0 100%, 0 0);
    padding: 50px 0px 15px 0px;
 }
-.footer__background {
-
-}
 .footer__body {
    display: flex;
    justify-content: flex-start;
-   
 }
 .footer__logo {
    padding-right: 70px;
@@ -1331,7 +1287,6 @@ h2 {
 .footer .logo {
    position: relative;
    padding: 0px 0px 0px 0px;
-  
 }
 .footer .logo__second {
    position: absolute;
@@ -1354,18 +1309,8 @@ flex-wrap: wrap;
 .footer__list2 .header__link {
    text-align: right;
 }
-.fill {
-}
 .footer .header__list {
    display: flex;
-}
-.header__link {
-}
-.width__link1 {
-}
-.width__link {
-}
-.header__contacts {
 }
 .footer__contacts {
    display: flex;
