@@ -2,42 +2,51 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 
-	require 'phpmailer/src/Exception.php'; // подключение плагина скаченного из папки
+	require 'phpmailer/src/Exception.php';
 	require 'phpmailer/src/PHPMailer.php';
 
-	$mail = new PHPMailer(true); // объявляем плагин
-	$mail->CharSet = 'UTF-8'; //кодировка
-	$mail->setLanguage('ru', 'phpmailer/language/'); //язык
-	$mail->IsHTML(true); //вкл возможность html тегов в письме
+	$mail = new PHPMailer(true);
+	$mail->CharSet = 'UTF-8';
+	$mail->setLanguage('ru', 'phpmailer/language/');
+	$mail->IsHTML(true);
 
 	//От кого письмо
-	$mail->setFrom('lune05@mail.ru', 'Пользователь с сайта');
+	$mail->setFrom('astantasheva@cu15527.tmweb.ru ', 'Письмо от пользователя с сайта');
 	//Кому отправить
-	$mail->addAddress('a4ypaxoid@yandex.ru'); // моя почта
+	$mail->addAddress('a4ypaxoid@yandex.ru');
 	//Тема письма
-	$mail->Subject = 'Привет! Пишу тебе с твоего сайта';
-/*
+	$mail->Subject = 'Привет! Это письмо с твоего сайта';
 
+	//Рука
 	$hand = "Правая";
 	if($_POST['hand'] == "left"){
 		$hand = "Левая";
 	}
-*/
+
 	//Тело письма
 	$body = '<h1>Встречайте супер письмо!</h1>';
-	//проверки на пустоту поля
+	
 	if(trim(!empty($_POST['name']))){
 		$body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>';
 	}
+   if(trim(!empty($_POST['phone']))){
+		$body.='<p><strong>Телефон:</strong> '.$_POST['phone'].'</p>';
+	}
 	if(trim(!empty($_POST['email']))){
 		$body.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>';
+	}
+	if(trim(!empty($_POST['hand']))){
+		$body.='<p><strong>Рука:</strong> '.$hand.'</p>';
+	}
+	if(trim(!empty($_POST['age']))){
+		$body.='<p><strong>Возраст:</strong> '.$_POST['age'].'</p>';
 	}
 	
 	if(trim(!empty($_POST['message']))){
 		$body.='<p><strong>Сообщение:</strong> '.$_POST['message'].'</p>';
 	}
 	
-	/*Прикрепить файл
+	//Прикрепить файл
 	if (!empty($_FILES['image']['tmp_name'])) {
 		//путь загрузки файла
 		$filePath = __DIR__ . "/files/" . $_FILES['image']['name']; 
@@ -47,9 +56,9 @@
 			$body.='<p><strong>Фото в приложении</strong>';
 			$mail->addAttachment($fileAttach);
 		}
-	} 
-	$mail->Body = $body; */
+	}
 
+	$mail->Body = $body;
 
 	//Отправляем
 	if (!$mail->send()) {
@@ -62,4 +71,6 @@
 
 	header('Content-type: application/json');
 	echo json_encode($response);
+
+
 ?>
